@@ -1,0 +1,59 @@
+﻿@model IEnumerable<tarnetWeb.Models.Model.Kimlik>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout - .cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Yeni Ekleme Yap", "Create")
+</p>
+<table class="table table-bordered table-responsive-sm table-striped"  >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Logo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link)
+        </th>
+        <th>
+            İşlemler
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keywords)
+        </td>
+        <td>
+            @Html.Raw(item.Description)
+        </td>
+        <td>
+            <img class ="img-responsive" src="@item.Logo  style="max-height: 300px; max-height: 200px; height: auto; width: auto""/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Link)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.KimlikId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.KimlikId })
+        </td>
+    </tr>
+}
+
+</table>

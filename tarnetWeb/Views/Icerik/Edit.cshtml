@@ -1,0 +1,79 @@
+﻿@model tarnetWeb.Models.Model.Icerik
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout - .cshtml";
+}
+
+<h2>İçerik Düzenleme</h2>
+
+
+<div class="form">
+    <form class="form-validate form-horizontal" id="create" method="post" action="/Icerik/Edit/@Model.IcerikId" enctype="multipart/form-data">
+
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Başlık <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="Baslik" name="Baslik" required value="@Model.Baslik" />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="cemail" class="control-label col-lg-2">Çıkış Yılı <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control " id="cemail" type="number" name="CikisYil" required value="@Model.CikisYil" />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Gösterim Dili<span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="subject" name="Dil" type="text" required value="@Model.Dil" />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Açıklama<span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="subject" name="Aciklama" type="text" required value="@Model.Aciklama" />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="curl" class="control-label col-lg-2">Güncel Resim</label>
+            <div class="col-lg-10">
+                <img src="@Model.Logo"  style="max-height: 300px; max-height: 200px; height: auto; width: auto" />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="curl" class="control-label col-lg-2">Resim</label>
+            <div class="col-lg-10">
+                <input type="file" class="form-control" name="LogoByteData" accept=".jpg,.png,.jpeg,.pdf" />
+            </div>
+        </div>
+
+
+
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">İzleme Link <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="Izleme" name="IzlemeLink" required value="@Model.IzlemeLink" />
+            </div>
+        </div>
+
+
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Yorum Link<span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="ccomment2" name="YorumLink" type="text" required value="@Model.YorumLink" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Kaydet</button>
+                <button class="btn btn-default" type="button"><a href="/Icerik/Index">İptal</a></button>
+            </div>
+        </div>
+    </form>
+</div>

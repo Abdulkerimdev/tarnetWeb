@@ -1,0 +1,42 @@
+﻿@model IEnumerable<tarnetWeb.Models.Model.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout - .cshtml";
+}
+
+<h2>Slider''lar</h2>
+
+<p>
+    @Html.ActionLink("Yeni Slider", "Create")
+</p>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>Görsel</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SliderId</td>
+                <td>@item.Başlik</td>
+                <td>@item.Aciklama</td>
+                <td><img src="@item.ResimURL" style="max-height: 150px; max-height: 150px; height: auto; width: auto" /></td>
+                <td>
+                    <a href="/Slider/Edit/@item.SliderId">Düzenle</a> |
+                    <a href="/Slider/Details/@item.SliderId">Detay</a> |
+                    <a href="/Slider/Delete/@item.SliderId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+   
+
+</table>
