@@ -11,10 +11,7 @@ namespace tarnetWeb.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin
-        
-
-        alloverMovieDB db = new alloverMovieDB();  
+        alloverMovieDB db = new alloverMovieDB();
         public ActionResult Index()
         {
             var sorgu = db.Kategori.ToList();
@@ -23,6 +20,7 @@ namespace tarnetWeb.Controllers
 
         public ActionResult Login()
         {
+            //git commit deneme
             return View();
         }
         [HttpPost]
@@ -38,7 +36,7 @@ namespace tarnetWeb.Controllers
                     return RedirectToAction("Index", "Admin");// işlem tamamsa adminin indexine gidecek
                 }
             }
-           
+
             ViewBag.Uyari = "Kullanıcı adı veya şifre hatalı! Tısss";
             return View(admin);
         }
